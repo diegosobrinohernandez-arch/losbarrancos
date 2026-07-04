@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinegética "Los Barrancos" · Monterías 2026/2027</title>
+<meta name="description" content="Cinegética Los Barrancos — Montería tradicional española. Programa de monterías temporada 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a130e;
+    --forest:#12201a;
+    --forest-2:#1a2e24;
+    --sage:#6b8f71;
+    --sage-dim:#4d6a52;
+    --dawn:#e8a33d;
+    --dawn-dim:#b9803a;
+    --cream:#f1ede2;
+    --cream-dim:#cfc9b8;
+    --line: rgba(241,237,226,0.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--forest);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  a{color:inherit}
+  ::selection{background:var(--dawn);color:var(--ink)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  @media(max-width:640px){.wrap{padding:0 20px}}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 32px;
+    background:linear-gradient(to bottom, rgba(10,19,14,0.85), transparent);
+    backdrop-filter:blur(2px);
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;font-size:1.05rem;letter-spacing:0.02em}
+  .brand-mark{width:34px;height:34px;flex-shrink:0}
+  nav .links{display:flex;gap:28px;font-size:0.88rem;letter-spacing:0.03em;text-transform:uppercase}
+  nav .links a{text-decoration:none;opacity:0.8;transition:opacity .2s}
+  nav .links a:hover{opacity:1;color:var(--dawn)}
+  @media(max-width:760px){nav .links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding-bottom:100px;
+    background:
+      radial-gradient(120% 90% at 50% 0%, rgba(232,163,61,0.16), transparent 55%),
+      linear-gradient(180deg, var(--ink) 0%, var(--forest) 55%, var(--forest-2) 100%);
+  }
+  .ridge-bg{position:absolute;inset:0;width:100%;height:100%;opacity:0.5}
+  .hero-inner{position:relative;z-index:2}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--dawn);margin-bottom:22px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--dawn)}
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5.4rem);
+    line-height:0.98;
+    max-width:900px;
+  }
+  .hero h1 em{font-style:italic;color:var(--dawn);font-weight:500}
+  .hero p{max-width:520px;margin-top:26px;color:var(--cream-dim);font-size:1.05rem}
+  .hero-meta{
+    display:flex;gap:40px;margin-top:56px;flex-wrap:wrap;
+  }
+  .hero-meta div{border-left:1px solid var(--line);padding-left:16px}
+  .hero-meta .num{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--dawn)}
+  .hero-meta .lbl{font-size:0.78rem;color:var(--cream-dim);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px}
+
+  /* ridge divider */
+  .ridge-divider{width:100%;height:70px;display:block}
+  .ridge-divider path{fill:var(--forest-2)}
+
+  /* ---------- section shell ---------- */
+  section{padding:110px 0}
+  .section-head{max-width:640px;margin-bottom:64px}
+  .section-head .eyebrow{color:var(--sage)}
+  .section-head .eyebrow::before{background:var(--sage)}
+  .section-head h2{font-size:clamp(2rem,4vw,2.8rem)}
+  .section-head p{color:var(--cream-dim);margin-top:18px;font-size:1.02rem}
+
+  /* ---------- quienes somos ---------- */
+  .about{background:var(--forest-2)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}}
+  .about-grid p{color:var(--cream-dim);margin-bottom:18px}
+  .stat-row{display:flex;gap:36px;margin-top:36px;flex-wrap:wrap}
+  .stat-row .num{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--dawn)}
+  .stat-row .lbl{font-size:0.82rem;color:var(--cream-dim);text-transform:uppercase;letter-spacing:0.06em}
+
+  /* ---------- calendario ---------- */
+  .season{background:var(--forest)}
+  .season-month{margin-bottom:56px}
+  .season-month h3{
+    font-size:1.1rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--dawn);
+    display:flex;align-items:center;gap:16px;margin-bottom:22px;font-family:'IBM Plex Mono',monospace;font-weight:500;
+  }
+  .season-month h3::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .hunt-card{
+    border:1px solid var(--line);border-radius:2px;
+    padding:26px 28px;margin-bottom:14px;
+    display:grid;grid-template-columns:100px 1.4fr 1fr auto;gap:24px;align-items:center;
+    transition:border-color .25s, background .25s;
+    position:relative;
+  }
+  .hunt-card:hover{border-color:var(--dawn-dim);background:rgba(232,163,61,0.04)}
+  @media(max-width:820px){.hunt-card{grid-template-columns:1fr;gap:10px}}
+  .hc-date{font-family:'IBM Plex Mono',monospace;color:var(--dawn);font-size:1.35rem;line-height:1}
+  .hc-date span{display:block;font-size:0.7rem;color:var(--cream-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px}
+  .hc-name{font-family:'Fraunces',serif;font-size:1.2rem}
+  .hc-loc{font-size:0.86rem;color:var(--cream-dim);margin-top:4px}
+  .hc-note{font-size:0.86rem;color:var(--sage)}
+  .hc-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;
+    padding:5px 10px;border:1px solid var(--dawn-dim);color:var(--dawn);white-space:nowrap;justify-self:start;
+  }
+  .hc-tag.full{border-color:var(--sage-dim);color:var(--sage)}
+  .hc-tag.premiere{border-color:var(--dawn);color:var(--dawn);background:rgba(232,163,61,0.1)}
+  @media(max-width:820px){.hc-tag{justify-self:start}}
+
+  /* ---------- especies ---------- */
+  .species{background:var(--forest-2)}
+  .species-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media(max-width:760px){.species-grid{grid-template-columns:1fr 1fr}}
+  .species-cell{background:var(--forest-2);padding:34px 24px;text-align:center}
+  .species-cell .glyph{font-family:'Fraunces',serif;font-style:italic;font-size:2.2rem;color:var(--dawn);margin-bottom:10px}
+  .species-cell .name{font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--cream-dim)}
+
+  /* ---------- contacto ---------- */
+  .contact{background:var(--ink);text-align:center}
+  .contact h2{font-size:clamp(2.2rem,5vw,3.6rem);max-width:760px;margin:0 auto 26px}
+  .contact p{color:var(--cream-dim);max-width:480px;margin:0 auto 44px}
+  .contact-people{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
+  .contact-people div{text-align:left}
+  .contact-people .role{font-size:0.76rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage)}
+  .contact-people .name{font-family:'Fraunces',serif;font-size:1.3rem;margin-top:4px}
+  .contact-people .tel{font-family:'IBM Plex Mono',monospace;color:var(--dawn);margin-top:6px;text-decoration:none;display:inline-block}
+
+  footer{padding:36px 0;background:var(--ink);border-top:1px solid var(--line);text-align:center;font-size:0.8rem;color:var(--cream-dim)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="48" stroke="#e8a33d" stroke-width="2"/><path d="M30 65 Q35 40 45 30 Q42 45 48 50 Q52 38 60 32 Q56 46 62 52 Q66 44 72 40 Q66 55 60 62 Q40 72 30 65Z" fill="#f1ede2"/></svg>
+    Los Barrancos
+  </div>
+  <div class="links">
+    <a href="#quienes">Quiénes somos</a>
+    <a href="#calendario">Temporada</a>
+    <a href="#especies">Especies</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="ridge-bg" viewBox="0 0 1200 700" preserveAspectRatio="none">
+    <polyline points="0,500 120,420 210,470 320,340 430,410 540,300 650,380 760,260 880,360 1000,290 1120,370 1200,320" fill="none" stroke="#6b8f71" stroke-width="1.4" opacity="0.35"/>
+    <polyline points="0,560 140,500 260,540 380,440 500,500 620,410 740,470 860,390 980,450 1100,400 1200,430" fill="none" stroke="#e8a33d" stroke-width="1" opacity="0.28"/>
+    <polyline points="0,620 160,590 300,610 440,560 580,600 720,540 860,580 1000,530 1140,570 1200,550" fill="none" stroke="#f1ede2" stroke-width="0.6" opacity="0.15"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Montería tradicional española</div>
+    <h1>El terreno<br>manda, <em>el silencio</em><br>decide.</h1>
+    <p>Cinegética Los Barrancos organiza monterías en fincas seleccionadas de Ciudad Real, Córdoba, Jaén, Badajoz y los Montes de Toledo. Temporada 2026/2027 ya abierta.</p>
+    <div class="hero-meta">
+      <div><div class="num">11</div><div class="lbl">Monterías&nbsp;programadas</div></div>
+      <div><div class="num">6</div><div class="lbl">Provincias</div></div>
+      <div><div class="num">2</div><div class="lbl">Ya&nbsp;completadas</div></div>
+    </div>
+  </div>
+</header>
+<svg class="ridge-divider" viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0,70 L0,40 L100,10 L220,35 L340,5 L460,30 L600,0 L740,28 L880,8 L1020,32 L1200,12 L1200,70 Z"/></svg>
+
+<section class="about" id="quienes">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">Quiénes somos</div>
+      <h2>Una organización, un terreno que conocemos palmo a palmo.</h2>
+    </div>
+    <div>
+      <p>Los barrancos que dan nombre a la organización marcan el carácter de cada mancha: terreno quebrado, aguadas escondidas y puestos que exigen paciencia. Trabajamos con propietarios y rehaleros de confianza en Sierra Morena, los Montes de Toledo y Sierra de Segura para ofrecer monterías de calidad real, no de catálogo.</p>
+      <p>Cada finca del programa se elige por su historial: años de descanso, densidad de reses y trato directo con el titular del coto.</p>
+      <div class="stat-row">
+        <div><div class="num">700–1200</div><div class="lbl">Hectáreas por finca</div></div>
+        <div><div class="num">25–95</div><div class="lbl">Puestos por mancha</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="season" id="calendario">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Programa 2026/2027</div>
+      <h2>Calendario de monterías</h2>
+      <p>La organización se reserva el derecho de modificar fechas buscando siempre la optimización de los resultados.</p>
+    </div>
+
+    <div class="season-month">
+      <h3>Octubre</h3>
+      <div class="hunt-card">
+        <div class="hc-date">08/10<span>2026</span></div>
+        <div><div class="hc-name">Venta del Robledo</div><div class="hc-loc">El Viso del Marqués, Ciudad Real · 1.200 Ha cerrada</div></div>
+        <div class="hc-note">Calidad alta · previsión 50 reses · garantía 1 res</div>
+        <div class="hc-tag premiere">Estreno comercial</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">10/10<span>2026</span></div>
+        <div><div class="hc-name">Los Morenos</div><div class="hc-loc">Malcocinado, Badajoz · 700 Ha abierta</div></div>
+        <div class="hc-note">Buena media de venados · previsión 40 reses</div>
+        <div class="hc-tag">69 puestos</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">17/10<span>2026</span></div>
+        <div><div class="hc-name">El Villarejo</div><div class="hc-loc">Villaviciosa de Córdoba · 750 Ha abierta</div></div>
+        <div class="hc-note">Villarejo + Casa del Balcón + Villarejo Alto · previsión 50 reses</div>
+        <div class="hc-tag">95 puestos</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">18/10<span>2026</span></div>
+        <div><div class="hc-name">Boquinete</div><div class="hc-loc">Hornachuelos, Córdoba · 350 Ha cerrada</div></div>
+        <div class="hc-note">Dos años sin cazar · puestos naturales, fácil acceso</div>
+        <div class="hc-tag">19 puestos</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">24/10<span>2026</span></div>
+        <div><div class="hc-name">Navalagua</div><div class="hc-loc">Navalucillos, Montes de Toledo · 350 Ha cerrada</div></div>
+        <div class="hc-note">Tres años sin cazar · cercón de jabalí · previsión 70 jabalíes</div>
+        <div class="hc-tag">Cupo 5 jabalí</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">31/10<span>2026</span></div>
+        <div><div class="hc-name">Valdelagrana La Nueva</div><div class="hc-loc">Andújar, Jaén · 800 Ha cerrada</div></div>
+        <div class="hc-note">&nbsp;</div>
+        <div class="hc-tag full">Completada</div>
+      </div>
+    </div>
+
+    <div class="season-month">
+      <h3>Noviembre</h3>
+      <div class="hunt-card">
+        <div class="hc-date">07/11<span>2026</span></div>
+        <div><div class="hc-name">Nava de los Corchos Bajos</div><div class="hc-loc">Hornachuelos, Córdoba (Las Escobas) · 600 Ha</div></div>
+        <div class="hc-note">De las más monteras de la sierra cordobesa · previsión 60 jabalíes</div>
+        <div class="hc-tag">65 puestos</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">08/11<span>2026</span></div>
+        <div><div class="hc-name">La Montosa</div><div class="hc-loc">Zuheros, Córdoba · 800 Ha abierta</div></div>
+        <div class="hc-note">Finca muy cochinera de la Subbética · previsión 50 jabalíes</div>
+        <div class="hc-tag">50 puestos</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">14/11<span>2026</span></div>
+        <div><div class="hc-name">Carvajal</div><div class="hc-loc">El Centenillo, Jaén (El Peral) · 900 Ha cerrada</div></div>
+        <div class="hc-note">Muy alta densidad en jabalí · previsión 65 reses más hembras</div>
+        <div class="hc-tag premiere">Estreno comercial</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">21/11<span>2026</span></div>
+        <div><div class="hc-name">Bretónica</div><div class="hc-loc">Andújar, Jaén · 800 Ha cerrada</div></div>
+        <div class="hc-note">Cuatro años sin cazar · garantía 1 res · previsión 80 reses más hembras</div>
+        <div class="hc-tag">35 puestos</div>
+      </div>
+      <div class="hunt-card">
+        <div class="hc-date">28/11<span>2026</span></div>
+        <div><div class="hc-name">Loma de la Higuera</div><div class="hc-loc">Cardeña, Córdoba (El Conductero) · 900 Ha cerrada</div></div>
+        <div class="hc-note">&nbsp;</div>
+        <div class="hc-tag full">Completada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="species" id="especies">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Cupos de la temporada</div>
+      <h2>Especies en programa</h2>
+    </div>
+  </div>
+  <div class="species-grid">
+    <div class="species-cell"><div class="glyph">V</div><div class="name">Venado</div></div>
+    <div class="species-cell"><div class="glyph">J</div><div class="name">Jabalí</div></div>
+    <div class="species-cell"><div class="glyph">G</div><div class="name">Gamo</div></div>
+    <div class="species-cell"><div class="glyph">Mf</div><div class="name">Muflón</div></div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center">Reservas temporada 2026/27</div>
+    <h2>Los puestos se cierran<br>por orden de reserva.</h2>
+    <p>Consulta disponibilidad, precios por finca y condiciones de garantía directamente con la organización.</p>
+    <div class="contact-people">
+      <div><div class="role">Organización</div><div class="name">José Morillo</div><a class="tel" href="tel:675257646">675 257 646</a></div>
+      <div><div class="role">Organización</div><div class="name">Sergio Sanz</div><a class="tel" href="tel:656535823">656 535 823</a></div>
+      <div><div class="role">Reservas</div><div class="name">Central de reservas</div><a class="tel" href="tel:610961260">610 961 260</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>Cinegética "Los Barrancos" · Temporada 2026/2027 · Montería tradicional española</footer>
+
+</body>
+</html>
